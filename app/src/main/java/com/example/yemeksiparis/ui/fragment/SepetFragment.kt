@@ -79,7 +79,7 @@ class SepetFragment : Fragment() {
                 }.show()
 
 
-            }
+            } 
 
         return tasarim.root
     }
