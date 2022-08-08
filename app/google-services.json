@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "373846104667",
+    "project_id": "yemeksiparis-298bb",
+    "storage_bucket": "yemeksiparis-298bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373846104667:android:b7d7094fd0f558db51bd7e",
+        "android_client_info": {
+          "package_name": "com.example.yemeksiparis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373846104667-80su7rt5iadabmhh1asfsq9466jtfdu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsaoIR3HPMFXu1k67oHtlRzQrge7T0-Ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "373846104667-80su7rt5iadabmhh1asfsq9466jtfdu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
