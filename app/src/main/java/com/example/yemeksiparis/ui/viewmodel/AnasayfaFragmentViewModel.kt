@@ -18,7 +18,8 @@ class AnasayfaFragmentViewModel @Inject constructor(var krepo:YemeklerDaoReposit
     init {
 
         yemekleriYukle()
-        yemeklerListesi=krepo.yemekleriGetir()
+        yemeklerListesi = krepo.yemekleriGetir()
+
     }
 
 
@@ -31,5 +32,8 @@ class AnasayfaFragmentViewModel @Inject constructor(var krepo:YemeklerDaoReposit
         krepo.sepetYemekSil(sepet_yemek_id,kullanici_adi)
     }
 
+  /*  fun ara(sonuc : String) {
+        krepo.yemekAra(sonuc)
+    }*/
 
 }

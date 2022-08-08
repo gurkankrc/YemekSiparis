@@ -26,7 +26,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
-class AnasayfaFragment : Fragment(){
+class AnasayfaFragment : Fragment() , SearchView.OnQueryTextListener{
     private lateinit var tasarim:FragmentAnasayfaBinding
     private lateinit var viewModel:AnasayfaFragmentViewModel
     private lateinit var aut:FirebaseAuth
@@ -44,6 +44,8 @@ class AnasayfaFragment : Fragment(){
         (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarAnasayfa)
 
 
+
+
             viewModel.yemeklerListesi.observe(viewLifecycleOwner) {
 
 
@@ -51,6 +53,9 @@ class AnasayfaFragment : Fragment(){
                 tasarim.yemeklerAdapter = adapter
 
             }
+
+
+
 
 
         return (tasarim.root)
@@ -66,76 +71,17 @@ class AnasayfaFragment : Fragment(){
         setHasOptionsMenu(true)
         val tempViewModel:AnasayfaFragmentViewModel by viewModels()
         viewModel = tempViewModel
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.ust_menu,menu)
         val item =menu.findItem(R.id.action_ara)
-        var searchView = item.actionView as SearchView
-
-        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-
-
-                Log.e("ara",newText.toString())
-                return true
-            }
-
-            })
-
-
-       /* if (item !=null){
-
-
-
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    return true
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-
-                    if (newText!!.isNotEmpty()){
-
-
-                        var search=newText.toLowerCase(Locale.getDefault())
-
-                        for (yemekler in yemeklerListesi){
-                            if (yemekler.toLowerCase(Locale.getDefault()).contains(search)){
-                                yemeklerListesi.add(yemekler)
-                            }
-
-                            tasarim.yemeklerAdapter!!.notifyDataSetChanged()
-
-
-                        }
-
-                    }else
-                    {
-
-                        yemeklerListesi.addAll(yemeklerListesi)
-                        tasarim.yemeklerAdapter!!.notifyDataSetChanged()
-
-                    }
-
-                    return false
-                }
-
-            })
-        }*/
-
-
-
-
-
+        val searchView = item.actionView as SearchView
+        searchView.setOnQueryTextListener(this)
 
         super.onCreateOptionsMenu(menu, inflater)
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -153,24 +99,23 @@ class AnasayfaFragment : Fragment(){
 
 
 
-/*
+
     override fun onQueryTextSubmit(query: String): Boolean {
 
+       //viewModel.ara(query)
 
-        return false
+
+        return true
     }
 
     override fun onQueryTextChange(newText: String): Boolean {
 
+        //viewModel.ara(newText)
 
 
-
-
-        return false
+        return true
     }
 
-fun ara (aramakelimesi:String){
-    Log.e("Kişi",aramakelimesi)
 
-   }*/
+
 }

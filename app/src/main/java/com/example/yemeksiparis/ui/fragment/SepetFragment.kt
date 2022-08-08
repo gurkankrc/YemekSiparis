@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -39,11 +40,19 @@ class SepetFragment : Fragment() {
 
 
 
+
+
+
+        //tasarim.avSplashAnimation.setAnimation("99298-food-delivery.json")
+       // tasarim.avSplashAnimation.playAnimation()
+
         tasarim= DataBindingUtil.inflate(inflater, R.layout.fragment_sepet,container, false)
 
         tasarim.toolbarSepet.title = "Sepet"
         tasarim.sepetFragment = this
 
+        tasarim.avSplashAnimation.setAnimation("71216-delivery-guy.json")
+        tasarim.avSplashAnimation.playAnimation()
 
 
         viewModel.sepetListesi.observe(viewLifecycleOwner) {
@@ -71,15 +80,17 @@ class SepetFragment : Fragment() {
 
                             viewModel.sil(viewModel.krepo.sepetListesi.value?.get(x)?.sepet_yemek_id.toString().toInt(),"${aut.currentUser}")
 
-
                         }
 
                     }
 
+                    tasarim.avSplashAnimation.isVisible = true
+                   Snackbar.make(it,"Siparişiniz Alınmıştır.",Snackbar.LENGTH_LONG).show()
+
                 }.show()
 
 
-            } 
+            }
 
         return tasarim.root
     }

@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".GirisActivity">
 
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/av_splash_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="82624-foodies.json"
+        app:lottie_loop="true" />
+
     <Button
         android:id="@+id/buttonGiris"
         android:layout_width="wrap_content"
@@ -24,7 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:backgroundTint="@color/anaRenk"
         android:textColorHint="@color/white"
@@ -40,7 +53,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/av_splash_animation">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailText"

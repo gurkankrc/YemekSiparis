@@ -81,7 +81,6 @@ class YemeklerDaoRepository(var kdao:YemeklerDao) {
     }
 
     fun tumSepetiAl() {
-
             kdao.tumsepet("${aut.currentUser}").enqueue(object : Callback<SepetCevap> {
                 override fun onResponse(call: Call<SepetCevap>?, response: Response<SepetCevap>) {
                     val liste = response.body().sepet
@@ -100,21 +99,32 @@ class YemeklerDaoRepository(var kdao:YemeklerDao) {
 
     }
 
+/*
+    fun yemekAra(sonuc : String) {
+        kdao.tumYemekler().enqueue(object : Callback<YemeklerCevap> {
+            override fun onResponse(call: Call<YemeklerCevap>?, response: Response<YemeklerCevap>) {
+                val liste = response.body().yemekler
 
+                val sonuc = liste.filter { it.yemek_ad.contains(sonuc, true) }
+                yemeklerListesi.value = sonuc
+            }
+
+            override fun onFailure(call: Call<YemeklerCevap>?, t: Throwable?) {}
+        })
+
+    }*/
 
 
 
 
     fun tumYemekleriAl(){
-
       kdao.tumYemekler().enqueue(object:Callback<YemeklerCevap>{
           override fun onResponse(call: Call<YemeklerCevap>?, response: Response<YemeklerCevap>) {
-             val liste =response.body().yemekler
+             val liste = response.body().yemekler
               yemeklerListesi.value = liste
           }
 
           override fun onFailure(call: Call<YemeklerCevap>?, t: Throwable?) {
-
 
           }
 

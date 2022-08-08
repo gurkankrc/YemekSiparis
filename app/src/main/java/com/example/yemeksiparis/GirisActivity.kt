@@ -23,7 +23,12 @@ class GirisActivity : AppCompatActivity() {
         tasarim =ActivityGirisBinding.inflate(layoutInflater)
         setContentView(tasarim.root)
 
-        tasarim.toolbar.title = "Giriş Ekranı"
+        tasarim.avSplashAnimation.setAnimation("82624-foodies.json")
+        tasarim.avSplashAnimation.playAnimation()
+
+
+
+        tasarim.toolbar.title= "Foodies"
 
         aut = FirebaseAuth.getInstance()
         val aktifuser=aut.currentUser
@@ -47,12 +52,15 @@ class GirisActivity : AppCompatActivity() {
 
         if (email.equals("") || sifre.equals("") ){
 
+            Toast.makeText(this,"Boşlukları Doldurunuz",Toast.LENGTH_SHORT).show()
+           // Snackbar.make(applicationContext,"Boşlukları Doldurunuz",Snackbar.LENGTH_SHORT).show()
             Log.e("Kayıt","Boş gecilemez")
 
         }else {
 
             aut.signInWithEmailAndPassword(email,sifre).addOnSuccessListener {
 
+                Toast.makeText(this,"Giriş Başarılı.",Toast.LENGTH_SHORT).show()
                 Log.e("Kayıt","Giriş Yapıldı.")
                 val intent= Intent(this@GirisActivity,MainActivity::class.java)
                 startActivity(intent)
@@ -60,7 +68,7 @@ class GirisActivity : AppCompatActivity() {
 
             }.addOnFailureListener {
 
-
+                Toast.makeText(this,it.localizedMessage,Toast.LENGTH_SHORT).show()
                 Log.e("Kayıt","Boş gecilemez")
 
             }
@@ -78,6 +86,7 @@ class GirisActivity : AppCompatActivity() {
         if (email.equals("") || sifre.equals("")){
 
             Log.e("Kayıt","Boş gecilemez")
+            Toast.makeText(this,"Boşlukları Doldurunuz",Toast.LENGTH_SHORT).show()
 
             //Toast.makeText(this@GirisActivity,"sadada",Toast.LENGTH_LONG).show()
 
@@ -85,11 +94,13 @@ class GirisActivity : AppCompatActivity() {
 
             aut.createUserWithEmailAndPassword(email,sifre).addOnSuccessListener {
                 Log.e("Kayıt","Başarılı")
+                Toast.makeText(this,"Kayıt Başarılı",Toast.LENGTH_SHORT).show()
 
 
 
             }.addOnFailureListener {
 
+                Toast.makeText(this,it.localizedMessage,Toast.LENGTH_SHORT).show()
                 Log.e("Kayıt","boş bırakmayınız")
                // Toast.makeText(this@GirisActivity,"sadada",Toast.LENGTH_LONG).show()
             }

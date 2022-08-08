@@ -12,10 +12,28 @@
 
     </data>
 
+
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.fragment.SepetFragment">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/av_splash_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSepetOnayla"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarSepet"
+            app:layout_constraintVertical_bias="0.351"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="71216-delivery-guy.json"
+            app:lottie_loop="true" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarSepet"

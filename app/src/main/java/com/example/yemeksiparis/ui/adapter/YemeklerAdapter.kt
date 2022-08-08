@@ -33,7 +33,7 @@ private lateinit var aut:FirebaseAuth
 
         var tasarim:AnasayfaCardTasarimiBinding
         init {
-            this.tasarim=tasarim
+            this.tasarim = tasarim
 
         }
 
@@ -47,9 +47,6 @@ private lateinit var aut:FirebaseAuth
         val layoutInflater = LayoutInflater.from(mContext)
         val tasarim:AnasayfaCardTasarimiBinding =DataBindingUtil.inflate(layoutInflater,R.layout.anasayfa_card_tasarimi,parent,false )
         return CardTasarimTutucu(tasarim)
-
-
-
 
     }
     val yemek_adet = 1
@@ -146,7 +143,6 @@ private lateinit var aut:FirebaseAuth
                 Snackbar.make(it,"Sepete ${yemek.yemek_ad} Eklendi.",Snackbar.LENGTH_SHORT).show()
 
 
-
             }
 
         }
@@ -157,7 +153,10 @@ private lateinit var aut:FirebaseAuth
         viewModel.krepo.tumSepetiAl()
         viewModel.krepo.sepeteEkle(yemek_adi,yemek_resim_adi,yemek_fiyat,yemek_siparis_adet,kullanici_adi)
         viewModel.krepo.tumSepetiAl()
-        Log.e("Sepet:",viewModel.krepo.tumSepetiAl().toString())
+
+        Log.e("Sepet3",viewModel.krepo.sepetiGetir().value.toString())
+
+
 
 
     }
